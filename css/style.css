@@ -89,12 +89,13 @@
 }
 
 .nav__logo-link {
-  width: 18rem;
+  max-width: 18rem;
   height: 2rem;
 }
 
 .nav__list {
   padding: 0.5rem;
+  justify-content: space-between;
   column-gap: 2rem;
 }
 
@@ -237,30 +238,31 @@
   column-gap: 1rem;
   width: 20.875rem;
   height: 65.5rem;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .banner__line {
   width: 6.2125rem;
-  height: 90rem;
+  height: 500%;
+  background-size: contain;
   background-repeat: repeat-y;
   background-position: 0 -300px;
 }
 
 .banner__line1 {
   background-image: url(../icons/line-1.png);
-  animation: down 5s infinite linear;
+  animation: down 120s infinite linear;
 }
 
 .banner__line2 {
   background-image: url(../icons/line-2.png);
   background-position: 0 300px;
-  animation: up 10s infinite linear;
+  animation: up 120s infinite linear;
 }
 
 .banner__line3 {
   background-image: url(../icons/line-3.png);
-  animation: down 5s infinite linear;
+  animation: down 100s infinite linear;
 }
 
 .banner__icon {
@@ -274,7 +276,7 @@
 
 @keyframes down {
   0% {
-    background-position: 0 -300px;
+    background-position: 0 -100%;
   }
   100% {
     background-position: 0 0px;
@@ -283,10 +285,10 @@
 
 @keyframes up {
   0% {
-    background-position: 0 50px;
+    background-position: 0 0;
   }
   100% {
-    background-position: 0 -800%;
+    background-position: 0 -100%;
   }
 }
 
@@ -446,7 +448,78 @@
   fill: var(--main-navy-blue);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1600px) {
+  .container {
+    max-width: 86.5rem;
+  }
+
+  .content__container {
+    justify-content: center;
+    column-gap: 1rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .page__body {
+    grid-template-rows: 75px 1fr 130px;
+  }
+
+  .container {
+    max-width: 62.5rem;
+  }
+
+  .nav {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .nav__logo-link {
+    min-width: 3.375rem;
+    height: 2rem;
+  }
+
+  .nav__list {
+    column-gap: 1rem;
+  }
+
+  .content__container {
+    min-height: 30.5rem;
+  }
+
+  .home-page {
+    max-width: 25rem;
+  }
+
+  .home-page__title {
+    font-size: 4rem;
+  }
+
+  .home-page__text {
+    font-size: 1rem;
+  }
+
+  .home-page__btn {
+    padding: 0.25rem 2.5rem;
+  }
+
+  .banner {
+    flex-shrink: 0;
+    width: 10rem;
+    height: 50rem;
+  }
+
+  .blog__list {
+    width: 25.1875rem;
+    max-width: 25.1875rem;
+    max-height: 30.1875rem;
+  }
+
+  .article__desc {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
   /* General */
   .page__body {
     grid-template-rows: 4.125rem 1fr 14.5625rem;
@@ -604,29 +677,29 @@
   .mobile-banner__line {
     width: 200%;
     height: 3.125rem;
-    background-repeat: no-repeat;
-    background-position: 50px 0;
+    background-repeat: repeat-x;
+    background-position: 0 0;
   }
 
   .mobile-banner__line1 {
     background-image: url(../icons/line-top.png);
-    animation: left 10s infinite linear;
+    animation: left 60s infinite linear;
   }
 
   .mobile-banner__line2 {
     background-image: url(../icons/line-mid.png);
-    background-position: -150px 0;
-    animation: right 10s infinite linear;
+    /* background-position: 0 0; */
+    animation: right 60s infinite linear;
   }
 
   .mobile-banner__line3 {
     background-image: url(../icons/line-bottom.png);
-    animation: left 10s infinite linear;
+    animation: left 60s infinite linear;
   }
 
   @keyframes left {
     0% {
-      background-position: -300px 0px;
+      background-position: -200% 0px;
     }
     100% {
       background-position: 0 0px;
@@ -638,7 +711,7 @@
       background-position: 0px 0px;
     }
     100% {
-      background-position: -300px 0px;
+      background-position: -200% 0px;
     }
   }
   /* Blog */
@@ -713,5 +786,39 @@
   .icon {
     width: 1.6875rem;
     height: 1.6875rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .mobile-banner__line1 {
+    animation: left 30s infinite linear;
+  }
+
+  .mobile-banner__line2 {
+    animation: right 60s infinite linear;
+  }
+
+  .mobile-banner__line3 {
+    animation: left 15s infinite linear;
+  }
+
+  @keyframes left {
+    0% {
+      background-position: -200% 0px;
+    }
+    100% {
+      background-position: 0 0px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  @keyframes left {
+    0% {
+      background-position: 500% 0px;
+    }
+    100% {
+      background-position: 0 0px;
+    }
   }
 }
